@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL CONSERVATION NETWORK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e5e5e5;
+        }
+
+        .container {
+            max-width: 1728px;
+        }
+
+        header {
+            color: #fff;
+            padding: 0px 25px 0px 25px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            flex: 1;
+            /* max-width: 12%; */
+            max-width: 10%;
+            padding-top: 30px;
+        }
+
+        .logo img {
+            width: 120px;
+        }
+
+        .buttons {
+            flex: 2;
+            /* display: flex; */
+            display: inline;
+            justify-content: left;
+            /* padding-top: 30px; */
+        }
+
+        .buttons h4 {
+            color: black;
+            font-family: "Outfit", sans-serif;
+            padding-left: 10px;
+            font-size: 18px;
+        }
+
+        .buttons button {
+            font-family: "Outfit", sans-serif;
+            font-weight: 500;
+            margin: 0 8px;
+            padding: 7px 36px;
+            background-color: transparent;
+            border: 2px solid #0F70A5;
+            border-radius: 10px;
+            color: #000000;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+            /* transition: 0.4s ease-in-out; */
+
+        }
+
+        .buttons button:hover {
+            background-color: #76ccfa;
+            border-color: #76ccfa;
+            /* transition: 0.4s ease-in-out; */
+
+        }
+
+        .more-buttons {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-self: self-start;
+            display: none;
+        }
+
+        #more-buttons {
+            display: none;
+        }
+
+        .more-buttons button {
+            margin: 0 8px;
+            font-family: "Outfit", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            /* padding: 50px 20px 10px 20px; */
+            padding: 44px 14px 10px 14px;
+            background-color: #292929;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 0px 0px 20px 20px;
+            transition: padding 0.4s ease-in-out;
+        }
+
+        .more-buttons button:hover {
+
+            padding-top: 70px;
+            background-color: #0F70A5;
+        }
+
+
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            position: fixed;
+            transition: 0.4s ease-in-out;
+
+        }
+
+        .tabs button {
+            border: none !important;
+            padding: 8px 26px;
+            font-size: 16px;
+            margin: 0px 6px;
+        }
+
+        /* .tabs button {
+        margin-right: 10px;
+        padding: 5px 10px;
+        border: none;
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      } */
+        .dropdown-content {
+            /* display: none; */
+            border-radius: 17px;
+            background-color: #429FD180;
+            /* position: absolute; */
+            /* position: relative;
+            top: -50px;
+            right: -152px; */
+            color: black;
+            /* min-width: 160px; */
+            min-width: 400px;
+            max-width: 100%;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            /* z-index: 1; */
+            /* margin-top: 8px; */
+            cursor: pointer;
+            /* transition: 0.4s ease-in-out; */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .dropdown-content button {
+            font-family: "Outfit", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 22px;
+            display: block;
+            padding-left: 20px;
+            margin-left: 0px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            border-radius: 25px;
+            color: white;
+            background-color: transparent;
+            /* background-color: transparent !important; */
+            transition: 0.4s ease-in-out;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #0F70A580 !important;
+            cursor: pointer;
+        }
+
+        #myDiv {
+            transition: 0.4s ease-in-out;
+        }
+
+        .buttons button:first-of-type {
+            /* Your existing styles */
+            /* Add transition properties for smooth style changes */
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+
+        @media (max-width: 1149px) {
+            .buttons button {
+                padding: 8px 30px;
+            }
+        }
+
+
+        @media (max-width: 1092px) {
+            .buttons button {
+                padding: 6px 20px;
+            }
+        }
+
+        @media (max-width: 1043px) {
+            .buttons {
+                padding-left: 20px !important;
+            }
+
+            .dropdown-content {
+                top: -42px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                max-width: 30%;
+            }
+
+            .buttons {
+                display: flex;
+                flex: 3;
+                justify-content: center;
+            }
+
+            .more-buttons {
+                display: none;
+            }
+
+            header {
+                flex-direction: column
+            }
+
+            .tabs button {
+                margin: 10px;
+            }
+
+            .tabs {
+                margin-top: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                max-width: 40%;
+            }
+
+            .buttons {
+                flex: 4;
+                display: flex;
+            }
+
+            header {
+                flex-direction: column
+            }
+
+            #myDiv {
+                margin-top: 35px;
+            }
+
+            .tabs button {
+                margin: 10px;
+            }
+
+            .dropdown-content {
+                top: -54px !important;
+                right: -132px !important;
+                min-width: 252px;
+            }
+        }
+
+        @media (max-width: 463px) {
+            .tabs button {
+                margin: 0px;
+            }
+
+            .buttons button {
+                padding: 6px 11px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="image/geo 1.png" alt="Logo" style="max-width: 100%;">
+            </div>
+            <div class="buttons">
+                <h4>GLOBAL CONSERVATION NETWORK</h4>
+                <button class="region-btn" onclick="toggleSelectedRegion('Region')">Region</button>
+                <button class="region-btn" onclick="toggleSelectedRegion('Project Type')">Project Type</button>
+                <div class="selected-region-row" style="display: none; align-items: center">
+                    <button class="selected-region-btn"></button>
+                    <span>&gt;</span>
+                    <span class="selected-region"></span>
+                </div>
+                <div id="myDiv" class="tabs" style="padding-top: 16px;">
+                    <div id="drop-down"></div>
+                </div>
+
+            </div>
+
+            <div class="more-buttons" id="more-buttons">
+                <div class="btn1"><button>Features</button></div>
+                <div class="btn2"><button>Deforestation</button></div>
+                <div class="btn3"><button>Threats</button></div>
+                <div class="btn4"><button>Protection</button></div>
+            </div>
+        </header>
+    </div>
+
+    <script>
+
+        var onClickBtnColor = "#0A3248";
+        var defaultColor = '';
+        var onClickTextColor = 'white';
+
+
+        var data = {
+            "region": {
+                "data": ['Americas', 'Africa', 'Eurasia', 'Asia'],
+                "drop-down": {
+                    "americas": [
+                        "Calakmul Biosphere Reserve, Mexico",
+                        'Darien National Park, Panama',
+                        'La Amistad World Heritage, Costa Rica & Panama',
+                        'Manu National Park, Peru',
+                    ],
+                    "africa": [
+                        "Dja World Heritage, Cameroon",
+                        "Kidepo Valley National Park, Uganda",
+                        "Mana Pools World Heritage, Zimbabwe",
+                        "Murchison Falls National Park, Uganda",
+                    ],
+                    "eurasia": [
+                        "Borjormi National Park, Republic of Georgia",
+                        "Carpathian National Park, Ukraine",
+                        "Racha National Park, Republic of Georgia",
+                        "Shar Mountains National Park, Macedonia",
+                    ],
+                    "asia": [
+                        "Bardiya-Banke National Parks, Nepal",
+                        "Cardamoms National Park, Cambodia",
+                        "Cat Tien National Park, Vietnam",
+                        "Komodo National Park, Indonesia",
+                    ],
+                },
+            },
+            "project type": {
+                "data": ['National Parks', 'Unesco World Heritage', 'Indigenous Territories', 'Marine Protection'],
+                "drop-down": {
+                    "national parks": [
+                        "Bardiya-Banke National Parks, Nepal",
+                        "Borjormi National Park, Republic of Georgia",
+                        "Cardamoms National Park, Cambodia",
+                        "Carpathian National Park, Ukraine",
+                    ],
+                    'unesco world heritage': [
+                        "Thung Yai-Huai Kha Khaeng World Heritage, Thailand",
+                        "Dja World Heritage, Cameroon",
+                        "Mana Pools World Heritage, Zimbabwe",
+                    ],
+                    'indigenous territories': [],
+                    'marine protection': [
+                        "Baja Sur National Marine Park, Mexico",
+                        "Coiba National Marine Park, Panama",
+                        "Derawan Islands Marine Park, Indonesia",
+                        "Bora Bora Rahui, French Polynesia",
+                    ],
+                },
+            },
+        };
+
+
+
+        function toggleDropdown(regionValue, btnValue) {
+            console.log("Toggle Drop Down, value is ", btnValue);
+
+
+            var mainBtns = document.getElementsByClassName("main-btn");
+
+            var myDiv = document.getElementById("drop-down");
+
+            for (var i = 0; i < mainBtns.length; i++) {
+
+                var btn = mainBtns[i];
+
+                let sameBtnText = btn.textContent.toLowerCase() === btnValue.toLowerCase();
+                let btnNotPressed = mainBtns[i].style.backgroundColor === defaultColor;
+                if (sameBtnText && btnNotPressed) {
+                    
+
+                    mainBtns[i].style.backgroundColor = onClickBtnColor;
+                    mainBtns[i].style.color = onClickTextColor;
+                    
+                    
+
+
+                    let html = ''
+                    for (let ele of data[regionValue.toLowerCase()]['drop-down'][btnValue.toLowerCase()]) {
+                        console.log(ele);
+                        html += `<button class='drop-down-btn' onclick="showSelected('${ele}')">${ele}</button>`;
+                    }
+
+
+                    myDiv.innerHTML = '<div class="dropdown-content">' + html + '</div>';
+
+                } else if (sameBtnText && !btnNotPressed) {
+                    mainBtns[i].style.backgroundColor = defaultColor;
+                    mainBtns[i].style.color = defaultColor;
+                    toggleMoreButtons(true);
+
+                    var dropDown = document.getElementById('drop-down');
+
+                    myDiv.innerHTML = "";
+
+                    for (var i = 0; i < mainBtns.length; i++) {
+                        mainBtns[i].style.display = '';
+                    }
+
+
+                    // HIDE THE DROPDOWN MENU
+                } else {
+                    mainBtns[i].style.backgroundColor = defaultColor;
+                    mainBtns[i].style.color = defaultColor;
+                    mainBtns[i].style.display = 'none';
+                    
+
+
+                }
+            }
+
+
+        }
+
+
+        function toggleSelectedRegion(value) {
+
+            // Changing the color of button (class="region-btn")
+            var regBtns = document.getElementsByClassName('region-btn');
+
+
+            for (let regBtn of regBtns) {
+                let btnAlreadyPressed = regBtn.style.backgroundColor.toLowerCase() !== defaultColor.toLowerCase();
+                let currentBtn = regBtn.innerText.toLowerCase() === value.toLowerCase()
+                if (currentBtn && btnAlreadyPressed) {
+                    return resetHeaders();
+                } else if (currentBtn && !btnAlreadyPressed) {
+                    // Change it to black
+                    regBtn.style.backgroundColor = onClickBtnColor;
+                    regBtn.style.color = onClickTextColor;
+                    regBtn.style.borderColor = onClickBtnColor;
+                    toggleMoreButtons(false);
+
+                } else {
+                    regBtn.style.backgroundColor = defaultColor;
+                    regBtn.style.borderColor = defaultColor;
+                    regBtn.style.color = defaultColor;
+                    toggleMoreButtons(true);
+                }
+            }
+
+            let buttons = data[value.toLowerCase()]['data'];
+            var html = '';
+            for (var btn of buttons) {
+                html += `<button class="main-btn" onclick="toggleDropdown('${value.toLowerCase()}', '${btn}')">${btn}</button>`;
+            }
+            var myDiv = document.getElementById("myDiv");
+
+            myDiv.innerHTML = html + '<div id = "drop-down"></div>';
+
+        }
+
+        function resetHeaders() {
+            var regBtns = document.getElementsByClassName('region-btn');
+            console.log(regBtns);
+            for (let regBtn of regBtns) {
+
+                regBtn.style.backgroundColor = defaultColor;
+                regBtn.style.borderColor = defaultColor;
+                regBtn.style.color = defaultColor;
+                toggleMoreButtons(false);
+
+            }
+
+            document.getElementById("myDiv").innerHTML = '<div id = "drop-down"></div>';
+            document.getElementById('drop-down').innerHTML = '';
+            toggleMoreButtons(true);
+        }
+
+
+        function showSelected(value) {
+
+            var dropdownBtns = document.getElementsByClassName('drop-down-btn');
+
+            if (dropdownBtns) {
+
+                for (var btn of dropdownBtns) {
+                    let currentBtn = value.toLowerCase() === btn.textContent.toLowerCase();
+
+                    if (currentBtn) {
+                        btn.style.backgroundColor = "#0F70A580";
+                        toggleMoreButtons(false);
+
+                    } else {
+                        btn.style.backgroundColor = defaultColor;
+                    }
+                }
+
+
+            }
+
+
+        }
+
+        function toggleMoreButtons(allowReset) {
+            var moreButtons = document.getElementById('more-buttons');
+
+            moreButtons.style.display = moreButtons.style.display === 'flex' ? allowReset ? 'none' : 'flex' : 'flex';
+        }
+
+    </script>
+</body>
+
+</html>
